@@ -14,6 +14,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		System.out.println("-----------Sistema iniciado-----------");
+		
 		mostrarMenu();
 	}
 
@@ -89,8 +90,6 @@ public class Principal {
 		System.out.println("Produto excluído com sucesso!");
 	}
 
-
-
 	private static void atualizarProduto() {
 		if (listaProdutos.size() == 0) {
 			System.out.println("Nenhum produto cadastrado!");
@@ -115,10 +114,6 @@ public class Principal {
 
 		System.out.println("Informe o novo preço: ");
 		produto.setPreco(scan.nextDouble());
-		scan.nextLine();
-
-		System.out.println("Informe a nova quantidade: ");
-		produto.setQuantidade(scan.nextInt());
 		scan.nextLine();
 
 		System.out.println("Produto atualizado com sucesso!");
@@ -174,16 +169,12 @@ public class Principal {
 		produto.setPreco(scan.nextDouble());
 		scan.nextLine();
 
-		System.out.println("Informe a quantidade do produto: ");
-		produto.setQuantidade(scan.nextInt());
-		scan.nextLine();
-
 		listaProdutos.add(produto);
 		System.out.println("Produto cadastrado com sucesso! ID: " + produto.getId());
 	}
 
 	private static void exibirProduto(Produto produto) {
-		System.out.printf("ID: %d \nNome: %s\nPreço:R$ %.2f:\nQuantidade:%d\n",produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade());
+		System.out.printf("ID: %d \nNome: %s\nPreço:R$ %.2f\n",produto.getId(), produto.getNome(), produto.getPreco());
 	}
 }
 
