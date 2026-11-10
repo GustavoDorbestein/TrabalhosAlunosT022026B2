@@ -1,0 +1,24 @@
+package jogosfag;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+import objeto.Jogos;
+
+public class Principal {
+
+	static Scanner scan = new Scanner (System.in);
+	static List<Jogos> exibirLista = new ArrayList<Jogos>();
+
+	public static void main(String[] args) {
+		tabelaJogos();
+
+
+	}
+
+	private static void tabelaJogos() {
+		exibirLista.add(new Jogos ("Mario"));
+	}
+
+}

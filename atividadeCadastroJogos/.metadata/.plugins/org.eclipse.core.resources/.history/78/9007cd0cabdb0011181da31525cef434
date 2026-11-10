@@ -1,0 +1,80 @@
+package jogosfag;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+import objeto.Jogos;
+
+public class Principal {
+
+	static Scanner scan = new Scanner (System.in);
+	static List<Jogos> exibirLista = new ArrayList<Jogos>();
+
+	public static void main(String[] args) {
+		tabelaJogos();
+		mostrarMenu();
+		System.out.println("---------Sistema iniciado---------");
+
+
+	}
+
+	private static void mostrarMenu() {
+		int escolha=0;
+	do {
+		System.out.println("1- Cadastrar jogos:");
+		System.out.println("2- Listar jogos: ");
+		System.out.println("3- Atualizar jogos");
+		System.out.println("4- Excluir jogo: ");
+		System.out.println("0- Sair");
+		escolha = scan.nextInt();
+		scan.nextLine();
+		validarEscolha(escolha);
+	}while(escolha != 0);
+		
+	}
+
+	private static void validarEscolha(int escolha) {
+		if (escolha == 1) {
+			cadastrarJogos();
+			return;
+		}
+		if (escolha == 2) {
+			listarJogos();
+			return;
+		}
+		if (escolha == 3) {
+			
+			return;
+		}
+		if (escolha == 4) {
+			
+			return;
+		}
+		
+	}
+
+	private static void listarJogos() {
+		System.out.println("----------Lista de jogos----------");
+		for (int i=0; i < exibirLista.size();i++) {
+			System.out.printf("%s, %s \n \n", i+1, exibirLista.get(i).getNome(), exibirLista.get(i).getGenero());			
+		}
+	}
+
+	private static void cadastrarJogos() {
+		Jogos jogo = new Jogos();
+		System.out.println("Informe o nome do jogo:");
+		jogo.setNome(scan.nextLine());
+		System.out.println("Informe o genero do jogo:");
+		jogo.setGenero(scan.nextLine());
+		exibirLista.add(jogo);
+		System.out.println("Jogo cadastrado com sucesso!");
+	}
+
+	private static void tabelaJogos() {
+		
+	}
+	
+	
+
+}

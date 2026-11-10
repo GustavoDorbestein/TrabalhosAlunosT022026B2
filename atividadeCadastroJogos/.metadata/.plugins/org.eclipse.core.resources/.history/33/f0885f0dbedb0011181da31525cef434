@@ -1,0 +1,144 @@
+package jogosfag;
+
+import java.util.Scanner;
+import java.io.Closeable;
+import java.util.ArrayList;
+import java.util.List;
+
+import objeto.Jogos;
+
+public class Principal {
+
+	static Scanner scan = new Scanner (System.in);
+	static List<Jogos> exibirLista = new ArrayList<Jogos>();
+
+	public static void main(String[] args) {
+		tabelaJogos();
+		mostrarMenu();
+		System.out.println("---------Sistema iniciado---------");
+
+
+	}
+
+	private static void mostrarMenu() {
+		int escolha=0;
+	do {
+		System.out.println("1- Cadastrar jogos:");
+		System.out.println("2- Listar jogos: ");
+		System.out.println("3- Atualizar jogos");
+		System.out.println("4- Excluir jogo: ");
+		System.out.println("0- Sair");
+		escolha = scan.nextInt();
+		scan.nextLine();
+		validarEscolha(escolha);
+	}while(escolha != 0);
+	
+		
+	}
+
+	private static void validarEscolha(int escolha) {
+		
+		if (escolha == 1) {
+			cadastrarJogos();
+			return;
+		}
+		if (escolha == 2) {
+			listarJogos();
+			return;
+		}
+		if (escolha == 3) {
+			atualizarJogo();
+			return;
+		}
+		if (escolha == 4) {
+			removerJogo();
+			return;
+		}
+		
+		if (escolha == 0) {
+			System.out.println("Obrigado por utilizar o sistema!");
+		}
+	}
+
+	private static void removerJogo() {
+		
+		System.out.println("------------Atualização de informação------------");		
+		if (exibirLista.size() == 0) {
+			System.out.println("Nenhum jogo cadastrado!");
+			return;
+		}
+		
+		listarJogos();
+		
+		System.out.println("Informe o número do jogo que deseja excluir:  ");
+		int num = scan.nextInt();
+		scan.nextLine();
+		
+		if (num < 1 || num > exibirLista.size()) {
+			System.out.println("Jogo não encontrado!");
+			return;
+		}
+		
+     exibirLista.remove(num - 1);	
+     System.out.println("Jogo excluido com sucesso!");
+	}
+
+	private static void atualizarJogo() {
+		
+		System.out.println("------------Atualização de informação------------");		
+		if (exibirLista.size() == 0) {
+			System.out.println("Nenhum jogo cadastrado!");
+			return;
+		}
+		
+		listarJogos();
+		
+		System.out.println("Informe o número do jogo que deseja atualizar:  ");
+		int num = scan.nextInt();
+		scan.nextLine();
+		
+		if (num < 1 || num > exibirLista.size()) {
+			System.out.println("Jogo não encontrado!");
+			return;
+		}
+
+		Jogos jogo = exibirLista.get(num - 1);
+		
+		System.out.println("Informe o novo nome do jogo: ");
+		jogo.setNome(scan.nextLine());
+		System.out.println("Informe o novo genêro do jogo: ");
+		jogo.setGenero(scan.nextLine());
+		
+		System.out.println("Jogo atualizado com suscesso!");
+		
+	}
+
+	private static void listarJogos() {
+		System.out.println("----------Lista de jogos----------");
+		if (exibirLista.size() == 0) {
+			System.out.println("Informe um valor valido!");
+			return;
+		}
+		
+		for (int i=0; i < exibirLista.size();i++) {
+			System.out.printf("(%d) %s - %s \n \n", i+1, exibirLista.get(i).getNome(), exibirLista.get(i).getGenero());			
+		}
+	}
+
+	private static void cadastrarJogos() {
+		Jogos jogo = new Jogos();
+		System.out.println("Informe o nome do jogo:");
+		jogo.setNome(scan.nextLine());
+		System.out.println("Informe o genero do jogo:");
+		jogo.setGenero(scan.nextLine());
+		exibirLista.add(jogo);
+		System.out.println("Jogo cadastrado com sucesso!");
+	}
+
+	private static void tabelaJogos() {
+		
+	}
+	
+	
+
+}
