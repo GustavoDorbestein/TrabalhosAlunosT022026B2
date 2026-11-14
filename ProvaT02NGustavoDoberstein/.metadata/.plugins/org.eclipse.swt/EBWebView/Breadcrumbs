@@ -1,0 +1,79 @@
+0:02:16 Widget Closed: WebView2MinimalFrame
+0:02:16 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+0:02:16 Microsoft.Shutdown.OnWindowClosing
+0:02:16 Microsoft.Shutdown.OnWindowClosing_DeleteScheduled
+0:02:16 Microsoft.Browser_Removed
+0:02:16 Widget Closed: WebView2MinimalFrame
+0:02:17 Tab1 StartNav24 #typed
+0:02:17 Tab1 FinishNav24
+0:02:17 Tab1 PageLoad
+0:02:23 Tab1 StartNav25 #typed
+0:02:23 Tab1 FinishNav25
+0:02:23 Tab1 PageLoad
+0:02:24 Tab1 StartNav26 #typed
+0:02:24 Tab1 FinishNav26
+0:02:24 Tab1 PageLoad
+0:02:28 Tab1 StartNav27 #typed
+0:02:28 Tab1 FinishNav27
+0:02:28 Tab1 PageLoad
+0:02:31 Tab1 StartNav28 #typed
+0:02:31 Tab1 FinishNav28
+0:02:31 Tab1 PageLoad
+0:02:49 Tab1 StartNav29 #typed
+0:02:49 Tab1 FinishNav29
+0:02:49 Tab1 PageLoad
+0:03:10 Tab1 StartNav30 #typed
+0:03:10 Tab1 FinishNav30
+0:03:10 Tab1 PageLoad
+0:04:07 Tab1 StartNav31 #typed
+0:04:07 Tab1 FinishNav31
+0:04:07 Tab1 PageLoad
+0:04:08 Tab1 StartNav32 #typed
+0:04:08 Tab1 FinishNav32
+0:04:08 Tab1 PageLoad
+0:04:13 Tab1 StartNav33 #typed
+0:04:13 Tab1 FinishNav33
+0:04:13 Tab1 PageLoad
+0:04:16 Tab1 StartNav34 #typed
+0:04:16 Tab1 FinishNav34
+0:04:16 Tab1 PageLoad
+0:04:18 Tab1 StartNav35 #typed
+0:04:18 Tab1 FinishNav35
+0:04:18 Tab1 PageLoad
+0:04:23 Tab1 StartNav36 #typed
+0:04:23 Tab1 FinishNav36
+0:04:23 Tab1 PageLoad
+0:04:26 Tab1 StartNav37 #typed
+0:04:26 Tab1 FinishNav37
+0:04:26 Tab1 PageLoad
+0:04:36 Tab1 StartNav38 #typed
+0:04:36 Tab1 FinishNav38
+0:04:36 Tab1 PageLoad
+0:04:42 Tab1 StartNav39 #typed
+0:04:42 Tab1 FinishNav39
+0:04:42 Tab1 PageLoad
+0:04:46 Tab1 StartNav40 #typed
+0:04:46 Tab1 FinishNav40
+0:04:46 Tab1 PageLoad
+0:04:51 Tab1 StartNav41 #typed
+0:04:51 Tab1 FinishNav41
+0:04:51 Tab1 PageLoad
+0:04:53 Tab1 StartNav42 #typed
+0:04:53 Tab1 FinishNav42
+0:04:53 Tab1 PageLoad
+0:05:38 Tab1 StartNav43 #typed
+0:05:38 Tab1 FinishNav43
+0:05:38 Tab1 PageLoad
+0:05:42 Tab1 StartNav44 #typed
+0:05:42 Tab1 FinishNav44
+0:05:42 Tab1 PageLoad
+0:05:45 Tab1 StartNav45 #typed
+0:05:45 Tab1 FinishNav45
+0:05:45 Tab1 PageLoad
+0:05:50 Tab1 StartNav46 #typed
+0:05:50 Tab1 FinishNav46
+0:05:50 Tab1 PageLoad
+0:06:13 Tab1 StartNav47 #typed
+0:06:13 Tab1 FinishNav47
+0:06:13 Tab1 PageLoad
+0:08:20 Microsoft.Shutdown.OnWindowClosing

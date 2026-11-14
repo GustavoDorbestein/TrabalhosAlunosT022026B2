@@ -1,0 +1,88 @@
+package fagProva;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import fagProva.Time;
+
+public class Principal {
+
+	static Scanner scan = new Scanner (System.in);
+	static List<Time>tabelatime = new ArrayList<Time>();
+
+	public static void main(String[] args) {
+		System.out.println("---------Sistema iniciado---------");
+		mostrarMenu();
+
+	}
+
+	private static void mostrarMenu() {
+		int escolhaUsuario = 0;
+
+		do {
+			System.out.println("1- Cadastro das equipes: ");
+			System.out.println("2- Registro das partidas:");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+			escolhaUsuario = scan.nextInt();
+			scan.nextLine();
+			validarEscolha(escolhaUsuario);
+		}while(escolhaUsuario != 0);
+
+	}
+
+	private static void validarEscolha(int escolhaUsuario) {
+		switch (escolhaUsuario) {
+		case 0: {
+			System.out.println("Obrigado por utilizar o sistema!");
+			break;
+		}
+		case 1: {
+			campeonato();
+		}
+		case 2:{
+			registroPartida();
+		}
+		default:
+			System.out.println("Insira um valor válido!");
+		}
+	}
+
+	private static void registroPartida() {
+		int golMandante;
+		int golVisitante;
+		String timeMandante;
+		String timeVisitante;
+
+		System.out.println("Insira o nome do time mandante: ");
+		timeMandante = (scan.nextLine());
+
+		System.out.println("Insira o nome do time visitante: ");
+		timeVisitante = (scan.nextLine());
+
+		System.out.println("Insira os gols do time mandadante: ");
+		golMandante = (scan.nextInt());
+
+
+		System.out.println("Insira os gols do time visitante: ");
+		golVisitante = (scan.nextInt());
+
+
+
+
+	}
+
+	private static void campeonato() {
+		Time escolha = new Time();
+
+		System.out.println("Insira o nome do Time: ");
+		escolha.setNomeTime(scan.nextLine());
+
+		
+
+		tabelatime.add(escolha);
+
+	}
+
+}

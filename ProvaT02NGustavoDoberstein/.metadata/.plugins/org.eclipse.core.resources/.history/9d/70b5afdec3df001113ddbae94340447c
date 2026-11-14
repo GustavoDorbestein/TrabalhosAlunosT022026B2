@@ -1,0 +1,114 @@
+package fagProva;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import fagProva.Times;
+
+public class Campeonatoum {
+
+	static Scanner scan = new Scanner(System.in);
+	static List<Times> tabelaBrasileiro = new ArrayList<Times>();
+
+	public static void main(String[] args) {
+		mostrarMenu();
+	}
+
+
+	private static void mostrarMenu() {
+		int escolhaUsuario =0;
+		do {
+			System.out.println("------------Selecione uma das opções-----------------");
+			System.out.println("1- Cadastrar time");
+			System.out.println("2- Listar Times");
+			System.out.println("3- Registrar partida");
+			System.out.println("4- exibir classificação");
+			System.out.println("0- Saída");
+			escolhaUsuario = scan.nextInt();
+			scan.nextLine();
+			validarEscolha(escolhaUsuario);
+		}while (escolhaUsuario != 0);
+
+
+	}
+
+
+	private static void validarEscolha(int escolhaUsuario) {
+		switch (escolhaUsuario) {
+		case 0: {
+			System.out.println("Obrigado por utilizar o sistema!");
+			break;
+		}
+		case 1: {
+			cadastrarTime();
+			break;
+		}
+		case 2: {
+			listarTimes();
+			break;
+		}
+		case 3: {
+			registrarPartida();
+			break;
+		}
+		case 4: {
+			
+			break;
+		}
+		default:
+System.out.println("insira um valor valido");
+		}		
+	}
+
+
+	public static void cadastrarTime() {
+	Times escolha = new Times();
+
+	System.out.println("Informe o nome do time: ");
+	escolha.setNome(scan.nextLine());
+	
+
+	tabelaBrasileiro.add(escolha);
+	}
+	
+	
+	
+	public static void listarTimes() {
+		if (tabelaBrasileiro.size() == 0) {
+			System.out.println("Nenhum time cadastrado!");
+			return;
+		}
+		for (int i = 0; i < tabelaBrasileiro.size(); i++) {
+			System.out.printf("%d) %s", i + 1, tabelaBrasileiro.get(i).getNome());
+		}
+	}
+
+	
+	
+	public static void registrarPartida() {
+		if (tabelaBrasileiro.size() < 2) {
+			System.out.println("Cadastre pelo menos 2 times para registrar uma partida!");
+			return;
+		}
+
+		System.out.println("Informe o nome do time mandante: ");
+		Times mandante = buscarTime(scan.nextLine());
+
+		System.out.println("Informe o nome do time visitante: ");
+		Times visitante = buscarTime(scan.nextLine());
+
+		if (mandante == visitante) {
+			System.out.println("Um time não pode jogar contra ele mesmo!");
+			return;
+		}
+	}
+	}
+
+	
+
+
+	
+	
+
+	
+

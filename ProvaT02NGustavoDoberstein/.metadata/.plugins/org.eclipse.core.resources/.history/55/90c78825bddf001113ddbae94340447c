@@ -1,0 +1,134 @@
+package fagProva;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Campeonato {
+
+	private Scanner scan;
+	private List<Time> times = new ArrayList<Time>();
+
+	public Campeonato(Scanner scan) {
+		this.scan = scan;
+	}
+
+	private Time buscarTime(String nome) {
+		for (int i = 0; i < times.size(); i++) {
+			if (times.get(i).getNome().equalsIgnoreCase(nome)) {
+				return times.get(i);
+			}
+		}
+		return null;
+	}
+
+	private int lerInteiro(String mensagem) {
+		while (true) {
+			System.out.println(mensagem);
+			try {
+				return Integer.parseInt(scan.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Informe um número válido!");
+			}
+		}
+	}
+
+	public void cadastrarTime() {
+		System.out.println("Informe o nome do time: ");
+		String nome = scan.nextLine().trim();
+
+		if (nome.isEmpty()) {
+			System.out.println("O nome não pode ficar vazio!");
+			return;
+		}
+		if (buscarTime(nome) != null) {
+			System.out.println("Já existe um time com esse nome!");
+			return;
+		}
+
+		times.add(new Time(nome));
+		System.out.println("Time cadastrado com sucesso!");
+	}
+
+	public void listarTimes() {
+		System.out.println("---------Lista de times---------");
+		if (times.size() == 0) {
+			System.out.println("Nenhum time cadastrado!");
+			return;
+		}
+		for (int i = 0; i < times.size(); i++) {
+			System.out.printf("%d) ", i + 1);
+			times.get(i).exibirDados();
+		}
+	}
+
+	public void registrarPartida() {
+		if (times.size() < 2) {
+			System.out.println("Cadastre pelo menos 2 times para registrar uma partida!");
+			return;
+		}
+
+		System.out.println("Informe o nome do time mandante: ");
+		Time mandante = buscarTime(scan.nextLine().trim());
+		if (mandante == null) {
+			System.out.println("Time mandante não encontrado!");
+			return;
+		}
+
+		System.out.println("Informe o nome do time visitante: ");
+		Time visitante = buscarTime(scan.nextLine().trim());
+		if (visitante == null) {
+			System.out.println("Time visitante não encontrado!");
+			return;
+		}
+
+		if (mandante == visitante) {
+			System.out.println("Um time não pode jogar contra ele mesmo!");
+			return;
+		}
+
+		int golsMandante = lerInteiro("Informe os gols do mandante: ");
+		int golsVisitante = lerInteiro("Informe os gols do visitante: ");
+
+		if (golsMandante < 0 || golsVisitante < 0) {
+			System.out.println("Não é permitido gols negativos!");
+			return;
+		}
+
+		mandante.registrarResultado(golsMandante, golsVisitante);
+		visitante.registrarResultado(golsVisitante, golsMandante);
+		System.out.println("Partida registrada com sucesso!");
+	}
+
+	public void exibirClassificacao() {
+		if (times.size() == 0) {
+			System.out.println("Nenhum time cadastrado!");
+			return;
+		}
+
+		List<Time> tabela = new ArrayList<Time>(times);
+
+		for (int i = 0; i < tabela.size() - 1; i++) {
+			for (int j = 0; j < tabela.size() - 1 - i; j++) {
+				Time a = tabela.get(j);
+				Time b = tabela.get(j + 1);
+
+				boolean bVemAntes = b.getPontos() > a.getPontos()
+						|| (b.getPontos() == a.getPontos() && b.getSaldoGols() > a.getSaldoGols());
+
+				if (bVemAntes) {
+					tabela.set(j, b);
+					tabela.set(j + 1, a);
+				}
+			}
+		}
+
+		System.out.println("---------Classificação---------");
+		System.out.printf("%-5s %-15s %4s %3s %3s %3s %4s\n", "Pos.", "Time", "Pts", "V", "E", "D", "SG");
+		for (int i = 0; i < tabela.size(); i++) {
+			Time t = tabela.get(i);
+			System.out.printf("%-5s %-15s %4d %3d %3d %3d %4d\n", (i + 1) + "º", t.getNome(), t.getPontos(),
+					t.getVitorias(), t.getEmpates(), t.getDerrotas(), t.getSaldoGols());
+		}
+	}
+}

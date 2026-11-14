@@ -1,0 +1,16 @@
+package fagProva;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import fagProva.Time;
+
+public class Principal {
+
+	static Scanner scan = new Scanner (System.in);
+	static List<Time>tabelatime = new ArrayList<Time>();
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}
